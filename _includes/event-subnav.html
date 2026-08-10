@@ -1,0 +1,7 @@
+<nav class="event-subnav" aria-label="What's on">
+  <div class="event-subnav-inner wrap">
+    {% for item in site.data.event_nav %}
+      <a class="event-subnav-link{% if page.url == item.url %} is-current{% endif %}" href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>
+    {% endfor %}
+  </div>
+</nav>

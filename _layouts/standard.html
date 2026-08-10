@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-<section class="standard-page" aria-labelledby="page-title">
+{% if page.event_subnav %}{% include event-subnav.html %}{% endif %}
+<section class="standard-page{% if page.page_theme %} {{ page.page_theme }}{% endif %}" aria-labelledby="page-title">
   <div class="wrap">
     <h1 id="page-title">{{ page.title }}</h1>
     <div class="standard-page-copy">

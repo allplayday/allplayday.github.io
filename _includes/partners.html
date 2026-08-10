@@ -2,20 +2,20 @@
   <div class="wrap">
     <h2 id="organised-by-title">ORGANISED BY</h2>
     <div class="organiser-list" aria-label="Event organisers">
-      <span class="organiser-mark organiser-tgda">TGDA</span>
-      <span class="organiser-mark organiser-sta">STA</span>
-      <span class="organiser-mark organiser-igda">IGDA</span>
-      <span class="organiser-mark organiser-fortress">FORTRESS</span>
+      <div class="organiser-mark"><img src="{{ '/assets/images/organisers/tgda-cropped.png' | relative_url }}" alt="Tabletop Game Designers Australia"></div>
+      <div class="organiser-mark"><img src="{{ '/assets/images/organisers/fortress.png' | relative_url }}" alt="Fortress Sydney"></div>
     </div>
   </div>
 </section>
 
-<section class="sgf-connection" aria-labelledby="sgf-connection-title">
-  <div class="wrap">
-    <a class="sgf-connection-link" href="https://sydneygamesfestival.org" target="_blank" rel="noopener">
-      <span id="sgf-connection-title">PART OF</span>
-      <span class="sgf-lockup"><img src="{{ '/assets/images/sgf-logo-lockup.png' | relative_url }}" alt="Sydney Games Festival"></span>
-      <span class="sgf-visit">Visit festival site <b>↗</b></span>
-    </a>
-  </div>
-</section>
+{% if page.url == '/' %}
+  <section class="sgf-connection" aria-labelledby="sgf-connection-title">
+    <div class="wrap">
+      <a class="sgf-connection-link" href="https://sydneygamesfestival.org" target="_blank" rel="noopener">
+        <span id="sgf-connection-title">PART OF</span>
+        <span class="sgf-lockup"><img src="{{ '/assets/images/sgf-logo-lockup.png' | relative_url }}" alt="Sydney Games Festival"></span>
+        <span class="sgf-visit">Visit festival site <b>↗</b></span>
+      </a>
+    </div>
+  </section>
+{% endif %}

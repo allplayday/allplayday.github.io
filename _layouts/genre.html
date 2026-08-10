@@ -1,19 +1,97 @@
 ---
 layout: default
 ---
+{% assign activities = site.activities | where: 'section', page.activity_section | sort: 'order' %}
+{% include event-subnav.html %}
 <section class="genre-page-hero {{ page.theme }}">
   <div class="wrap">
-    <h1>{{ page.title }}</h1>
-    <p>{{ page.intro }}</p>
-    <a class="button button-accent" href="{{ '/#tickets' | relative_url }}">Get ticket news <span>↗</span></a>
+    <h1 class="genre-page-title"><img src="{{ page.banner | relative_url }}?v=20260811-13" alt="{{ page.title }}"></h1>
+    <div class="genre-page-intro">
+      <p>{{ page.intro }}</p>
+      <a class="button button-cream" href="{{ '/#tickets' | relative_url }}">Get ticket news <span>↗</span></a>
+    </div>
   </div>
 </section>
-<section class="genre-page-body section wrap">
-  <div>
-    <h2>{{ page.headline }}</h2>
-  </div>
-  <div class="genre-page-copy">
-    <p>{{ page.body }}</p>
-    <a class="arrow-link" href="{{ '/' | relative_url }}#genres">Explore every way to play <span>→</span></a>
+<section class="genre-page-body section">
+  <div class="genre-page-body-grid wrap">
+    <div>
+      <h2>{{ page.headline }}</h2>
+    </div>
+    <div class="genre-page-copy">
+      <p>{{ page.body }}</p>
+      <a class="arrow-link" href="{{ '/' | relative_url }}#whats-on">Explore everything that's on <span>→</span></a>
+    </div>
   </div>
 </section>
+{% assign submission_status = page.submission_status | default: 'upcoming' %}
+<section id="submissions" class="genre-submissions section">
+  <div class="genre-submissions-grid wrap">
+    <h2>{% if submission_status == 'closed' %}Submissions closed{% else %}Call for submissions{% endif %}</h2>
+    <div>
+      {% if submission_status == 'closed' %}
+        <p>{{ page.submission_closed_text | default: 'Submissions have closed and the programme is now being prepared.' }}</p>
+        {% if activities != empty %}
+          <a class="button button-accent" href="#activities">See scheduled activities <span>↗</span></a>
+        {% else %}
+          <a class="button button-accent" href="{{ '/#tickets' | relative_url }}">Get notified when the schedule is live <span>↗</span></a>
+        {% endif %}
+      {% elsif page.submission_url %}
+        <a class="submission-link" href="{{ page.submission_url }}" target="_blank" rel="noopener">
+          <strong>{{ page.submission_label | default: 'Submit now' }}</strong>
+          <span>Applications are open ↗</span>
+        </a>
+      {% else %}
+        <p>{{ page.submission_text }}</p>
+        <a class="button button-accent" href="{{ '/#tickets' | relative_url }}">Hear when applications open <span>↗</span></a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<section id="activities" class="genre-activities section">
+  <div class="wrap">
+    <h2>What's on</h2>
+    {% if activities != empty %}
+      <div class="genre-activity-grid">
+        {% for activity in activities %}
+          <article class="genre-activity">
+            {% if activity.image %}<img src="{{ activity.image | relative_url }}" alt="">{% endif %}
+            <div>
+              {% if activity.time %}<span>{{ activity.time }}</span>{% endif %}
+              <h3><a href="{{ activity.url | relative_url }}">{{ activity.title }}</a></h3>
+              {% if activity.summary %}<p>{{ activity.summary }}</p>{% endif %}
+              <a class="arrow-link" href="{{ activity.url | relative_url }}">View activity <span>→</span></a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="genre-activities-coming">
+        <h3>Schedule coming soon.</h3>
+        <p>Games and activities will be added here as the programme is confirmed.</p>
+        <a class="button button-accent" href="{{ '/#tickets' | relative_url }}">Get schedule updates <span>↗</span></a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% if page.organisations and page.organisations != empty %}
+  <section id="organisations" class="genre-organisations section">
+    <div class="wrap">
+      <h2>Organisations involved</h2>
+      <div class="genre-organisation-grid">
+        {% for organisation in page.organisations %}
+          {% if organisation.url %}
+            <a class="genre-organisation" href="{{ organisation.url }}" target="_blank" rel="noopener">
+          {% else %}
+            <div class="genre-organisation">
+          {% endif %}
+            {% if organisation.logo %}
+              <img src="{{ organisation.logo | relative_url }}?v=20260811-2" alt="{{ organisation.name }}">
+            {% else %}
+              {{ organisation }}
+            {% endif %}
+          {% if organisation.url %}</a>{% else %}</div>{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}

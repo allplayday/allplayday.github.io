@@ -1,5 +1,11 @@
 const toggle = document.querySelector('[data-menu-toggle]');
 const menu = document.querySelector('[data-menu]');
+const currentSubnavLink = document.querySelector('.event-subnav-link.is-current');
+
+if (currentSubnavLink) {
+  const subnav = currentSubnavLink.parentElement;
+  subnav.scrollLeft = currentSubnavLink.offsetLeft - (subnav.clientWidth - currentSubnavLink.offsetWidth) / 2;
+}
 
 if (toggle && menu) {
   toggle.addEventListener('click', () => {

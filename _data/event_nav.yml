@@ -1,0 +1,16 @@
+- label: Video Games
+  url: /genres/digital/
+- label: Board Games
+  url: /genres/board-games/
+- label: Tabletop RPGs
+  url: /genres/tabletop-rpgs/
+- label: Card Games
+  url: /genres/card-games/
+- label: Indie Dev Showcase
+  url: /genres/indie-dev-showcase/
+- label: Game Library & More
+  url: /genres/game-library/
+- label: After Dark
+  url: /after-dark/
+- label: Prizes & More
+  url: /prizes-and-more/

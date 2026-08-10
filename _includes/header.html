@@ -1,14 +1,16 @@
 <header class="site-header">
-  <a class="brand" href="{{ '/' | relative_url }}" aria-label="All Play Day home">
-    <img src="{{ '/assets/svg/key_logo_long.svg' | relative_url }}" alt="">
-  </a>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-toggle>
-    <span>Menu</span><span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
-  </button>
-  <nav id="primary-nav" class="primary-nav" aria-label="Main navigation" data-menu>
-    <a href="{{ '/#about' | relative_url }}">About</a>
-    <a href="{{ '/#genres' | relative_url }}">Play</a>
-    <a href="{{ '/#spaces' | relative_url }}">Venue</a>
-    <a class="nav-cta" href="{{ '/#tickets' | relative_url }}">Get notified <span>↗</span></a>
-  </nav>
+  <div class="header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="All Play Day home">
+      <img src="{{ '/assets/svg/key_logo_long.svg' | relative_url }}?v=20260811-3" alt="">
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-toggle>
+      <span>Menu</span><span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Main navigation" data-menu>
+      <a href="{{ '/#about' | relative_url }}">About</a>
+      <a href="{{ '/#whats-on' | relative_url }}">What's On</a>
+      <a href="{{ '/#spaces' | relative_url }}">Venue</a>
+      <a class="nav-cta" href="{{ '/#tickets' | relative_url }}">Get notified <span>↗</span></a>
+    </nav>
+  </div>
 </header>

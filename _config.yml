@@ -4,6 +4,16 @@ url: ""
 baseurl: ""
 permalink: pretty
 markdown: kramdown
+collections:
+  activities:
+    output: true
+    permalink: /whats-on/:name/
+defaults:
+  - scope:
+      path: ""
+      type: activities
+    values:
+      layout: activity
 exclude:
   - Gemfile
   - Gemfile.lock
