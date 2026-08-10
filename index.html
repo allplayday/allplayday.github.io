@@ -1,0 +1,113 @@
+---
+layout: default
+title: Sydney's all-play day
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <svg class="hero-pattern" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <defs>
+      <pattern id="all-play-icons" width="300" height="250" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)">
+        <g class="pattern-die" transform="translate(22 30) rotate(-10)"><rect width="62" height="62" rx="11"/><circle cx="19" cy="19" r="5"/><circle cx="43" cy="43" r="5"/><circle cx="19" cy="43" r="5"/><circle cx="43" cy="19" r="5"/></g>
+        <g class="pattern-controller" transform="translate(138 18) rotate(12)"><path d="M8 27C12 9 27 3 44 9l15 6 15-6c17-6 32 0 36 18l4 21c3 16-17 24-27 9l-9-13H50l-9 13C31 72 11 64 14 48z"/><path class="pattern-line" d="M30 26h16M38 18v16M71 24h1M83 33h1"/></g>
+        <g class="pattern-card" transform="translate(233 96) rotate(14)"><rect x="12" width="49" height="70" rx="6"/><rect width="49" height="70" rx="6"/><path class="pattern-line" d="M18 22l7-8 7 8-7 8z"/></g>
+        <g class="pattern-d20" transform="translate(80 125) rotate(-8)"><path d="M31 0l30 20-7 37-23 22-23-22-7-37z"/><path class="pattern-line" d="M31 0v79M1 20l30 18 30-18M8 57l23-19 23 19"/></g>
+        <g class="pattern-pawn" transform="translate(184 156) rotate(-10)"><circle cx="23" cy="11" r="10"/><path d="M16 25h14l9 31H7zM3 58h40l6 12H-3z"/></g>
+        <g class="pattern-board" transform="translate(14 196) rotate(9)"><rect width="67" height="45" rx="6"/><path class="pattern-line" d="M22 0v45M44 0v45M0 22h67"/></g>
+        <path class="pattern-spark" d="M272 42l5 10 10 5-10 5-5 10-5-10-10-5 10-5z"/>
+        <path class="pattern-spark" d="M118 218l4 8 8 4-8 4-4 8-4-8-8-4 8-4z"/>
+      </pattern>
+    </defs>
+    <rect width="1200" height="720" fill="url(#all-play-icons)"/>
+  </svg>
+  <div class="hero-content wrap">
+    <h1 id="hero-title"><img src="{{ '/assets/svg/key_logo.svg' | relative_url }}" alt="All Play Day"></h1>
+    <p class="hero-subtitle"><span>ALL GAMES.</span><span>ALL DAY.</span><span>ALL PLAY!</span></p>
+  </div>
+</section>
+
+<section id="about" class="event-summary section" aria-labelledby="about-title">
+  <div class="event-summary-grid wrap">
+    <h2 id="about-title">ONE VENUE.<br><em>ALL PLAY.</em></h2>
+    <div class="event-summary-copy">
+      <p>All Play Day is a big, welcoming day out for everyone who loves games. Play board games, tabletop RPGs, trading card games, games from the library, and local and mainstream video games. All under one roof!</p>
+      <p>New to games? Want to taste test something new? Everything is within reach and surrounded by a enthusiastic community to show you around.</p>
+      <p>Meet the local developers behind your home-grown favorites, check out tomorrow’s next big hits and even help shape them before release. Make a day and evening of it with specialty menu items and drinks available throughout.</p>
+    </div>
+  </div>
+</section>
+
+<section class="event-details" aria-label="Event details">
+  <div class="wrap"><p class="event-ribbon"><span>Saturday, Oct 17th · 10am ’til late</span><i aria-hidden="true">✦</i><span>Fortress Sydney</span></p></div>
+</section>
+
+<section id="tickets" class="ticket-panel">
+  <div class="ticket-grid ticket-grid-compact wrap">
+    <div>
+      <h2>COMING <em>SOON.</em></h2>
+      <p>Sign up for first access to tickets, games, guests and late-night surprises.</p>
+    </div>
+    <form class="notify-form" data-notify-form novalidate>
+      <label for="email">Your email address</label>
+      <div class="form-row">
+        <input id="email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required>
+        <button type="submit" class="button button-dark">Notify me <span>↗</span></button>
+      </div>
+      <p class="form-note">No spam. Just news from All Play Day.</p>
+      <p class="form-success" aria-live="polite" hidden>You’re on the list. We’ll be in touch when tickets land.</p>
+    </form>
+  </div>
+</section>
+
+<section id="genres" class="genres section" aria-labelledby="genres-title">
+  <div class="wrap genre-heading genre-heading-compact">
+    <div>
+      <h2 id="genres-title">WHAT WILL YOU<br><em>PLAY FIRST?</em></h2>
+    </div>
+    <p>Take a closer look at the games, people and experiences waiting in each part of the day.</p>
+  </div>
+  <div class="genre-grid wrap">
+    <a class="genre-card genre-video" href="{{ '/genres/digital/' | relative_url }}"><span class="genre-num">01</span><svg class="genre-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 38c3-14 11-20 22-14 11-6 19 0 22 14l2 9c1 6-7 9-11 4l-5-7H24l-5 7c-4 5-12 2-11-4z"/><path d="M23 30v10M18 35h10M43 32h1M49 38h1"/></svg><strong>VIDEO<br>GAMES</strong><span class="card-arrow">↗</span><small>Local + mainstream favourites • free play</small></a>
+    <a class="genre-card genre-board" href="{{ '/genres/board-games/' | relative_url }}"><span class="genre-num">02</span><svg class="genre-icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="17" r="9"/><path d="M25 28h14l7 22H18zM13 54h38"/></svg><strong>BOARD<br>GAMES</strong><span class="card-arrow">↗</span><small>Local games + the Fortress game library</small></a>
+    <a class="genre-card genre-rpg" href="{{ '/genres/tabletop-rpgs/' | relative_url }}"><span class="genre-num">03</span><svg class="genre-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6l22 16-8 27H18l-8-27z"/><path d="M32 6v43M10 22l22 14 22-14M18 49l14-13 14 13"/></svg><strong>TABLETOP<br>RPGs</strong><span class="card-arrow">↗</span><small>Drop-in quests • live stories • dice rolls</small></a>
+    <a class="genre-card genre-card-games" href="{{ '/genres/card-games/' | relative_url }}"><span class="genre-num">04</span><svg class="genre-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="20" y="12" width="28" height="38" rx="3" transform="rotate(8 34 31)"/><rect x="14" y="15" width="28" height="38" rx="3"/><path d="M28 27l6-6 6 6-6 6z"/></svg><strong>CARD<br>GAMES</strong><span class="card-arrow">↗</span><small>TCGs • Magic: The Gathering • Pokémon</small></a>
+    <a class="genre-card genre-indie" href="{{ '/genres/indie-dev-showcase/' | relative_url }}"><span class="genre-num">05</span><svg class="genre-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="14" width="40" height="29" rx="3"/><path d="M20 51h24M27 25l-6 4 6 4M37 25l6 4-6 4"/></svg><strong>INDIE DEV<br>SHOWCASE</strong><span class="card-arrow">↗</span><small>Early demos • player feedback • local makers</small></a>
+    <a class="genre-card genre-library" href="{{ '/genres/game-library/' | relative_url }}"><span class="genre-num">06</span><svg class="genre-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 13h14v38H16zM34 13h14v38H34zM12 51h40M21 20h4M39 20h4"/></svg><strong>GAME<br>LIBRARY & MORE</strong><span class="card-arrow">↗</span><small>Borrow • discover • play together</small></a>
+  </div>
+</section>
+
+<section class="after-dark" aria-labelledby="after-dark-title">
+  <div class="after-dark-grid wrap">
+    <div>
+      <h2 id="after-dark-title">AFTER <em>DARK.</em></h2>
+      <p>When the day’s games wrap, the next round begins. Keep playing, meet new people and settle in for a late-night session.</p>
+      <a class="after-dark-link" href="{{ '/after-dark/' | relative_url }}">Explore After Dark <span>↗</span></a>
+    </div>
+    <div class="after-dark-detail">
+      <span>THE ARENA · FROM 8PM</span>
+      <p>Every After Dark ticket includes <strong>one drink</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="spaces" class="spaces section" aria-labelledby="spaces-title">
+  <div class="wrap spaces-heading spaces-heading-compact">
+    <div>
+      <h2 id="spaces-title">EVERY ROOM<br>IS <em>IN PLAY.</em></h2>
+    </div>
+  </div>
+  <div class="space-grid wrap">
+    <article class="space-card space-arena"><span>01</span><h3>THE ARENA</h3><p>Board + card + After Dark</p></article>
+    <article class="space-card space-tavern"><span>02</span><h3>THE TAVERN</h3><p>TTRPG + social</p></article>
+    <article class="space-card space-arcade"><span>03</span><h3>THE ARCADE</h3><p>Game library + more</p></article>
+    <article class="space-card space-cyber-bar"><span>04</span><h3>2315<br>CYBER BAR</h3><p>Indie Dev Showcase</p></article>
+    <article class="space-card space-lounge"><span>05</span><h3>GAMING<br>LOUNGE</h3><p>Video + PC games</p></article>
+  </div>
+</section>
+
+<section class="prizes-section wrap" aria-labelledby="prizes-title">
+  <div class="prizes-copy">
+    <h2 id="prizes-title">PLAY FOR<br><em>THE PRIZES.</em></h2>
+  </div>
+  <p>Giveaways, game prizes and small surprises will be dotted across the day. Full details are coming soon.</p>
+  <a class="arrow-link" href="#tickets">Get the announcement <span>→</span></a>
+</section>

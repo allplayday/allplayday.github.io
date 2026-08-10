@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<section class="after-dark-page" aria-labelledby="page-title">
+  <div class="wrap">
+    <h1 id="page-title">{{ page.title }}</h1>
+    <p class="after-dark-page-lead">{{ page.lead }}</p>
+    <div class="after-dark-page-detail">
+      <span>{{ page.when }}</span>
+      <p>{{ page.ticket_note }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="event-summary section" aria-labelledby="follow-up-title">
+  <div class="event-summary-grid wrap">
+    <h2 id="follow-up-title">{{ page.follow_up_title }}</h2>
+    <div class="event-summary-copy">
+      {{ content }}
+      <a class="arrow-link" href="{{ '/#tickets' | relative_url }}">Get ticket news <span>→</span></a>
+    </div>
+  </div>
+</section>

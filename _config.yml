@@ -1,0 +1,9 @@
+title: All Play Day
+description: Sydney's All Play Day - games, people and local makers under one roof.
+url: ""
+baseurl: ""
+permalink: pretty
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
