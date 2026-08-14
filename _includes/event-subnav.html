@@ -1,4 +1,14 @@
 <nav class="event-subnav" aria-label="What's on">
+  <div class="event-subnav-mobile">
+    <label for="event-subnav-select">Explore what's on</label>
+    <span class="event-subnav-select-wrap">
+      <select id="event-subnav-select" data-event-subnav-select>
+        {% for item in site.data.event_nav %}
+          <option value="{{ item.url | relative_url }}"{% if page.url == item.url %} selected{% endif %}>{{ item.label }}</option>
+        {% endfor %}
+      </select>
+    </span>
+  </div>
   <div class="event-subnav-inner wrap">
     {% for item in site.data.event_nav %}
       <a class="event-subnav-link{% if page.url == item.url %} is-current{% endif %}" href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>

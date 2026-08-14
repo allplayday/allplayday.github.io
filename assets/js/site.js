@@ -1,10 +1,17 @@
 const toggle = document.querySelector('[data-menu-toggle]');
 const menu = document.querySelector('[data-menu]');
 const currentSubnavLink = document.querySelector('.event-subnav-link.is-current');
+const eventSubnavSelect = document.querySelector('[data-event-subnav-select]');
 
 if (currentSubnavLink) {
   const subnav = currentSubnavLink.parentElement;
   subnav.scrollLeft = currentSubnavLink.offsetLeft - (subnav.clientWidth - currentSubnavLink.offsetWidth) / 2;
+}
+
+if (eventSubnavSelect) {
+  eventSubnavSelect.addEventListener('change', (event) => {
+    if (event.target.value) window.location.assign(event.target.value);
+  });
 }
 
 if (toggle && menu) {
@@ -18,16 +25,30 @@ if (toggle && menu) {
   }));
 }
 
-const notifyForm = document.querySelector('[data-notify-form]');
-if (notifyForm) {
-  notifyForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const email = notifyForm.elements.email;
-    if (!email.checkValidity()) { email.reportValidity(); return; }
-    notifyForm.querySelector('.form-success').hidden = false;
-    notifyForm.querySelector('.form-row').hidden = true;
-    notifyForm.querySelector('.form-note').hidden = true;
+const updatesModal = document.querySelector('[data-updates-modal]');
+if (updatesModal) {
+  const updatesFrame = updatesModal.querySelector('[data-src]');
+  const closeUpdatesButton = updatesModal.querySelector('[data-close-updates]');
+  let lastUpdatesTrigger;
+
+  const openUpdatesModal = (trigger) => {
+    lastUpdatesTrigger = trigger;
+    if (!updatesFrame.hasAttribute('src')) updatesFrame.src = updatesFrame.dataset.src;
+    updatesModal.showModal();
+  };
+
+  document.querySelectorAll('[data-open-updates], a[href$="#tickets"]').forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      openUpdatesModal(trigger);
+    });
   });
+
+  closeUpdatesButton.addEventListener('click', () => updatesModal.close());
+  updatesModal.addEventListener('click', (event) => {
+    if (event.target === updatesModal) updatesModal.close();
+  });
+  updatesModal.addEventListener('close', () => lastUpdatesTrigger?.focus());
 }
 
 const showContactError = (status, technicalMessage) => {
