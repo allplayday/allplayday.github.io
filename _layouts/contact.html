@@ -1,0 +1,56 @@
+---
+layout: default
+---
+<section class="contact-page" aria-labelledby="contact-title">
+  <div class="wrap contact-grid">
+    <div class="contact-intro">
+      <h1 id="contact-title">{{ page.title }}</h1>
+      <div class="contact-copy">{{ content }}</div>
+    </div>
+
+    <form
+      class="contact-form"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      data-web3forms-form
+    >
+      <input type="hidden" name="access_key" value="{{ site.web3forms.access_key }}">
+      <div class="contact-fields">
+        <label>
+          <span>Name</span>
+          <input type="text" name="from_name" autocomplete="name" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label class="contact-field-wide">
+          <span>Mobile (optional)</span>
+          <input type="tel" autocomplete="tel" inputmode="tel" data-mobile-field>
+        </label>
+        <label class="contact-field-wide">
+          <span>Subject</span>
+          <input type="text" name="subject" required>
+        </label>
+        <label class="contact-field-wide">
+          <span>Message</span>
+          <textarea name="message" rows="7" required></textarea>
+        </label>
+      </div>
+      <label class="contact-honeypot" aria-hidden="true">
+        Leave this field empty
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+      </label>
+      <div class="contact-captcha">
+        <div class="h-captcha" data-captcha="true"></div>
+      </div>
+      {% unless site.web3forms.access_key %}
+        <p class="contact-setup-note">This contact form is in setup mode and cannot send messages yet.</p>
+      {% endunless %}
+      <div class="contact-form-footer">
+        <button class="button button-dark" type="submit"><strong>Send message</strong><span aria-hidden="true">↗</span></button>
+        <p class="contact-status" role="status" aria-live="polite" data-form-status></p>
+      </div>
+    </form>
+  </div>
+</section>

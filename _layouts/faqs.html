@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<section class="faq-page" aria-labelledby="faq-title">
+  <div class="wrap">
+    <header class="faq-header">
+      <h1 id="faq-title">{{ page.title }}</h1>
+      <div>{{ content }}</div>
+    </header>
+
+    <div class="faq-list">
+      {% assign faqs = site.faqs | sort: "order" %}
+      {% for faq in faqs %}
+        <details class="faq-item">
+          <summary>{{ faq.question | default: faq.title }}</summary>
+          <div class="faq-answer">{{ faq.content }}</div>
+        </details>
+      {% endfor %}
+    </div>
+
+    <aside class="faq-contact">
+      <div>
+        <h2>Still have a question?</h2>
+        <p>Send the All Play Day team a message.</p>
+      </div>
+      <a class="button button-dark" href="{{ '/contact/' | relative_url }}">Contact us <span aria-hidden="true">↗</span></a>
+    </aside>
+  </div>
+</section>

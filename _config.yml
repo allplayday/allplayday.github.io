@@ -8,12 +8,16 @@ collections:
   activities:
     output: true
     permalink: /whats-on/:name/
+  faqs:
+    output: false
 defaults:
   - scope:
       path: ""
       type: activities
     values:
       layout: activity
+web3forms:
+  access_key: 5cb3e6e9-c7fd-44a3-a382-9ced386591b5
 exclude:
   - Gemfile
   - Gemfile.lock

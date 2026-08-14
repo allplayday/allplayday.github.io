@@ -11,4 +11,4 @@ Respect personal boundaries, ask before taking photos, use the names and pronoun
 
 ## Need support?
 
-Please speak with an All Play Day or Fortress staff member at any time, or email [hello@allplayday.au](mailto:hello@allplayday.au). We will listen, respond with care and take appropriate action.
+Please speak with an All Play Day or Fortress staff member at any time, or use our [contact form]({{ '/contact/' | relative_url }}). We will listen, respond with care and take appropriate action.
