@@ -43,3 +43,8 @@ All Play Day is made possible by the people, partners and local games community 
 ## With thanks
 
 To the game makers, volunteers, community groups, guests and players who make this day worth playing. Full contributor credits will be shared closer to the event.
+
+|  Area  |  Supporters  |
+| ------- | ------ |
+| Marketing | Esthefania Morantes  |
+| General Volunteers | . |
