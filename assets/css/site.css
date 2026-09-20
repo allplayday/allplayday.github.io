@@ -347,7 +347,7 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .spaces { padding-block: 68px 76px; color: var(--ink); background: var(--purple); }
 .spaces-heading { margin-bottom: 43px; }
 .spaces-heading h2 { margin: 0; }
-.space-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 11px; }
+.space-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 11px; }
 
 .space-card {
   position: relative;
@@ -374,7 +374,6 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .space-card:hover::before { transform: scale(1.07); }
 .space-lounge::before { background-image: linear-gradient(180deg, rgba(49, 40, 32, 0.07), rgba(49, 40, 32, 0.92)), url("../images/venue-gaming-lounge.jpg"); }
 .space-tavern::before { background-image: linear-gradient(180deg, rgba(49, 40, 32, 0.07), rgba(49, 40, 32, 0.92)), url("../images/venue-tavern.jpg"); }
-.space-arcade::before { background-image: linear-gradient(180deg, rgba(49, 40, 32, 0.07), rgba(49, 40, 32, 0.92)), url("../images/venue-arcade.jpg"); }
 .space-cyber-bar::before { background-image: linear-gradient(180deg, rgba(49, 40, 32, 0.07), rgba(49, 40, 32, 0.92)), url("../images/venue-2315.jpg"); }
 .space-card > span { position: absolute; top: 17px; left: 18px; color: var(--yellow); font: 700 10px var(--font-heading); letter-spacing: 0.08em; }
 .space-card h3 { margin: 0 0 10px; font-size: 35px; }
@@ -635,7 +634,6 @@ a.genre-organisation:focus-visible { outline: 2px solid var(--ink); outline-offs
   .spaces-heading { margin-bottom: 40px; }
   .space-grid { grid-template-columns: repeat(2, 1fr); }
   .space-card { min-height: 225px; }
-  .space-card:last-child { grid-column: 1 / -1; min-height: 190px; }
   .prizes-section { grid-template-columns: 1fr; gap: 22px; padding-block: 68px; }
   .prizes-section .arrow-link { grid-column: auto; }
   .organised-by { padding-block: 55px; }
