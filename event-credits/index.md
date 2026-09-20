@@ -1,6 +1,7 @@
 ---
 layout: standard
 title: Event Credits
+description: Meet the organisers, partners and local games community bringing All Play Day to life at Fortress Sydney.
 ---
 
 All Play Day is made possible by the people, partners and local games community that bring it to life.

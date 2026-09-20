@@ -1,6 +1,7 @@
 ---
 layout: standard
 title: Prizes & More
+description: Find out about giveaways, game prizes and special activities at All Play Day at Fortress Sydney, with more details as they are confirmed.
 permalink: /prizes-and-more/
 event_subnav: true
 page_theme: prizes-theme

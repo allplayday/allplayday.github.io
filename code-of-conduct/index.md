@@ -1,6 +1,7 @@
 ---
 layout: standard
 title: Code of Conduct
+description: Read the All Play Day code of conduct, including how to play kindly, respect other attendees and get support from the event team.
 ---
 
 All Play Day is for everyone. We want every player, maker, guest and staff member to feel welcome, comfortable and safe.

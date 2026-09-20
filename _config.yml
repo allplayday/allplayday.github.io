@@ -1,9 +1,12 @@
 title: All Play Day
-description: Sydney's All Play Day - games, people and local makers under one roof.
-url: ""
+description: Play board games, video games, tabletop RPGs and card games at All Play Day at Fortress Sydney. Meet local game makers and discover something new.
+url: "https://allplay.day"
 baseurl: ""
 permalink: pretty
 markdown: kramdown
+plugins:
+  - jekyll-sitemap
+
 collections:
   activities:
     output: true
