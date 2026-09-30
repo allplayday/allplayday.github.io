@@ -97,7 +97,7 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .primary-nav > a:not(.nav-cta) { opacity: 0.83; transition: opacity 0.2s; }
 .primary-nav > a:hover { opacity: 1; }
 
-.nav-cta { padding: 12px 17px; border: 1px solid var(--ink); }
+.nav-cta { padding: 12px 17px; color: var(--white); background: var(--ink); border: 1px solid var(--ink); }
 .nav-cta span { margin-left: 8px; color: var(--coral); }
 
 .menu-toggle { display: none; }
@@ -183,6 +183,8 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
   cursor: pointer;
   transition: transform 0.18s, color 0.18s, background 0.18s;
 }
+
+.cta-actions { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; }
 
 .button:hover { transform: translateY(-3px); }
 .button span { font-size: 18px; line-height: 0; }

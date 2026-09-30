@@ -62,12 +62,15 @@ title: Games at Sydney's All Play Day
 <section id="tickets" class="ticket-panel">
   <div class="ticket-grid ticket-grid-compact wrap">
     <div>
-      <h2>COMING <em>SOON.</em></h2>
-      <p>Sign up for first access to tickets, games, guests and late-night surprises.</p>
+      <h2>TICKETS <em>ON SALE.</em></h2>
+      <p>Tickets are available now. Book your day of play at Fortress Sydney.</p>
     </div>
-    <div class="notify-cta">
-      <button type="button" class="button button-dark" data-open-updates>Get updates <span>↗</span></button>
-      <p>Ticket releases, event news and first looks — straight to your inbox.</p>
+    <div id="updates" class="notify-cta">
+      <div class="cta-actions">
+        <a class="button button-dark" href="{{ site.tickets_url }}">Get tickets <span aria-hidden="true">↗</span></a>
+        <a class="button button-cream" href="{{ site.mailing_list_url | escape }}" data-open-updates>Get updates <span aria-hidden="true">↗</span></a>
+      </div>
+      <p>Sign up for games, guests and event news — straight to your inbox.</p>
     </div>
   </div>
 </section>

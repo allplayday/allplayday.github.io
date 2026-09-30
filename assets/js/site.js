@@ -37,7 +37,7 @@ if (updatesModal) {
     updatesModal.showModal();
   };
 
-  document.querySelectorAll('[data-open-updates], a[href$="#tickets"]').forEach((trigger) => {
+  document.querySelectorAll('[data-open-updates]').forEach((trigger) => {
     trigger.addEventListener('click', (event) => {
       event.preventDefault();
       openUpdatesModal(trigger);

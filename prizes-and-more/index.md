@@ -15,4 +15,4 @@ Giveaways, game prizes and small surprises will be dotted across All Play Day. F
 
 Sign up for event news to hear about prizes, scheduled activities and other announcements.
 
-[Get event updates](/#tickets)
+<a href="{{ site.mailing_list_url | escape }}" data-open-updates>Get event updates</a>

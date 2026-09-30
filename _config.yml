@@ -2,6 +2,8 @@ title: All Play Day
 description: Play board games, video games, tabletop RPGs and card games at All Play Day at Fortress Sydney. Meet local game makers and discover something new.
 url: "https://allplay.day"
 baseurl: ""
+tickets_url: "https://events.humanitix.com/sydney-games-festival-play-all-day-fortress-sydney/tickets"
+mailing_list_url: "https://stats.sender.net/forms/bkR14x/view"
 permalink: pretty
 markdown: kramdown
 plugins:

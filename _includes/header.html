@@ -10,7 +10,8 @@
       <a href="{{ '/#about' | relative_url }}">About</a>
       <a href="{{ '/#whats-on' | relative_url }}">What's On</a>
       <a href="{{ '/#spaces' | relative_url }}">Venue</a>
-      <a class="nav-cta" href="{{ '/#tickets' | relative_url }}">Get notified <span>↗</span></a>
+      <a href="{{ site.mailing_list_url | escape }}" data-open-updates>Get updates</a>
+      <a class="nav-cta" href="{{ site.tickets_url }}">Get tickets <span aria-hidden="true">↗</span></a>
     </nav>
   </div>
 </header>

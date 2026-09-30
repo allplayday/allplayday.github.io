@@ -8,7 +8,10 @@ layout: default
     <h1 class="genre-page-title"><img src="{{ page.banner | relative_url }}?v=20260811-13" alt="{{ page.title }}"></h1>
     <div class="genre-page-intro">
       <p>{{ page.intro }}</p>
-      <a class="button button-cream" href="{{ '/#tickets' | relative_url }}">Get ticket news <span>↗</span></a>
+      <div class="cta-actions">
+        <a class="button button-dark" href="{{ site.tickets_url }}">Get tickets <span aria-hidden="true">↗</span></a>
+        <a class="button button-cream" href="{{ site.mailing_list_url | escape }}" data-open-updates>Get updates <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -33,7 +36,7 @@ layout: default
         {% if activities != empty %}
           <a class="button button-accent" href="#activities">See scheduled activities <span>↗</span></a>
         {% else %}
-          <a class="button button-accent" href="{{ '/#tickets' | relative_url }}">Get notified when the schedule is live <span>↗</span></a>
+          <a class="button button-accent" href="{{ site.mailing_list_url | escape }}" data-open-updates>Get notified when the schedule is live <span>↗</span></a>
         {% endif %}
       {% elsif page.submission_url %}
         <a class="submission-link" href="{{ page.submission_url }}" target="_blank" rel="noopener">
@@ -42,7 +45,7 @@ layout: default
         </a>
       {% else %}
         <p>{{ page.submission_text }}</p>
-        <a class="button button-accent" href="{{ '/#tickets' | relative_url }}">Hear when applications open <span>↗</span></a>
+        <a class="button button-accent" href="{{ site.mailing_list_url | escape }}" data-open-updates>Hear when applications open <span>↗</span></a>
       {% endif %}
     </div>
   </div>
@@ -68,7 +71,7 @@ layout: default
       <div class="genre-activities-coming">
         <h3>Schedule coming soon.</h3>
         <p>Games and activities will be added here as the programme is confirmed.</p>
-        <a class="button button-accent" href="{{ '/#tickets' | relative_url }}">Get schedule updates <span>↗</span></a>
+        <a class="button button-accent" href="{{ site.mailing_list_url | escape }}" data-open-updates>Get schedule updates <span>↗</span></a>
       </div>
     {% endif %}
   </div>
