@@ -22,10 +22,13 @@ layout: default
     </div>
     <div class="genre-page-copy">
       <p>{{ page.body }}</p>
-      <a class="arrow-link" href="#activities">Explore everything that's on <span>→</span></a>
+      <a class="arrow-link" href="{% if page.showcase == 'board-games' %}#showcase{% else %}#activities{% endif %}">{% if page.showcase == 'board-games' %}Explore the showcase{% else %}Explore everything that's on{% endif %} <span>→</span></a>
     </div>
   </div>
 </section>
+{% if page.showcase == 'board-games' %}
+  {% include board-game-showcase.html %}
+{% endif %}
 {% assign submission_status = page.submission_status | default: 'upcoming' %}
 <section id="submissions" class="genre-submissions section">
   <div class="genre-submissions-grid wrap">

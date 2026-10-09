@@ -26,6 +26,32 @@ if (toggle && menu) {
 }
 
 const updatesModal = document.querySelector('[data-updates-modal]');
+const showcaseLightbox = document.querySelector('[data-showcase-lightbox]');
+if (showcaseLightbox && typeof showcaseLightbox.showModal === 'function') {
+  const largeImage = showcaseLightbox.querySelector('[data-showcase-large-image]');
+  const imageTitle = showcaseLightbox.querySelector('[data-showcase-image-title]');
+  let lastImageTrigger;
+
+  document.querySelectorAll('[data-showcase-image]').forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      lastImageTrigger = trigger;
+      largeImage.src = trigger.href;
+      largeImage.alt = trigger.dataset.gameName;
+      imageTitle.textContent = trigger.dataset.gameName;
+      showcaseLightbox.showModal();
+    });
+  });
+  showcaseLightbox.querySelector('[data-close-showcase-image]').addEventListener('click', () => showcaseLightbox.close());
+  showcaseLightbox.addEventListener('click', (event) => {
+    if (event.target === showcaseLightbox) {
+      const bounds = showcaseLightbox.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) showcaseLightbox.close();
+    }
+  });
+  showcaseLightbox.addEventListener('close', () => lastImageTrigger?.focus());
+}
+
 if (updatesModal) {
   const updatesFrame = updatesModal.querySelector('[data-src]');
   const closeUpdatesButton = updatesModal.querySelector('[data-close-updates]');
