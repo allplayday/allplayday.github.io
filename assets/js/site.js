@@ -30,15 +30,23 @@ const showcaseLightbox = document.querySelector('[data-showcase-lightbox]');
 if (showcaseLightbox && typeof showcaseLightbox.showModal === 'function') {
   const largeImage = showcaseLightbox.querySelector('[data-showcase-large-image]');
   const imageTitle = showcaseLightbox.querySelector('[data-showcase-image-title]');
+  const gameDescription = showcaseLightbox.querySelector('[data-showcase-description]');
+  const gameDesigners = showcaseLightbox.querySelector('[data-showcase-designers]');
   let lastImageTrigger;
 
   document.querySelectorAll('[data-showcase-image]').forEach((trigger) => {
     trigger.addEventListener('click', (event) => {
       event.preventDefault();
       lastImageTrigger = trigger;
-      largeImage.src = trigger.href;
+      const imageUrl = trigger.dataset.imageUrl;
+      largeImage.hidden = !imageUrl;
+      showcaseLightbox.classList.toggle('showcase-lightbox-no-image', !imageUrl);
+      if (imageUrl) largeImage.src = imageUrl;
+      else largeImage.removeAttribute('src');
       largeImage.alt = trigger.dataset.gameName;
       imageTitle.textContent = trigger.dataset.gameName;
+      gameDescription.textContent = trigger.dataset.gameDescription;
+      gameDesigners.textContent = `Designed by ${trigger.dataset.gameDesigners}`;
       showcaseLightbox.showModal();
     });
   });

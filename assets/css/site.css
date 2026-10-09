@@ -471,12 +471,17 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .showcase-card { position: relative; min-width: 0; background: var(--white); border: 2px solid var(--ink); }
 .showcase-card:has(.showcase-image:hover), .showcase-card:focus-within { z-index: 2; }
 .showcase-image { position: relative; display: grid; aspect-ratio: 4 / 3; padding: 16px; background: var(--white); place-items: center; }
-.showcase-image > img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.showcase-image > img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
 .showcase-image:focus-visible { outline: 3px solid var(--ink); outline-offset: -5px; }
-.showcase-enlarge { position: absolute; right: 10px; bottom: 10px; display: grid; width: 28px; height: 28px; color: var(--white); background: var(--ink); place-items: center; }
 .showcase-image-pending { gap: 12px; align-content: center; background: var(--yellow); }
 .showcase-image-pending > img { width: 120px; height: 120px; }
-.showcase-image-pending > span { font-size: 13px; }
+.showcase-image-status { font-size: 13px; }
+.showcase-hover-popup { position: absolute; z-index: 3; top: -24px; left: -16px; right: -16px; padding: 14px; color: var(--ink); background: var(--white); border: 2px solid var(--ink); box-shadow: 0 12px 32px rgba(45, 42, 75, 0.25); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(8px); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s; }
+.showcase-hover-popup > img { display: block; width: 100%; height: 290px; object-fit: contain; }
+.showcase-hover-copy { display: block; margin-top: 16px; }
+.showcase-hover-copy > strong { display: block; font: 700 22px/1.15 var(--font-heading); text-transform: uppercase; }
+.showcase-hover-designers { display: block; margin: 8px 0 12px; font-size: 13px; font-weight: 600; }
+.showcase-hover-description { display: block; max-height: 240px; overflow-y: auto; font-size: 14px; line-height: 1.65; white-space: pre-line; }
 .showcase-card-copy { padding: 22px 24px 24px; border-top: 2px solid var(--ink); }
 .showcase-card h3 { margin: 0 0 16px; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.05; overflow-wrap: anywhere; }
 .showcase-card-copy p { margin: 0; font-size: 15px; line-height: 1.6; }
@@ -487,9 +492,14 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .showcase-lightbox-heading h2 { margin: 0; font-size: 25px; line-height: 1.1; }
 .showcase-lightbox-heading button { flex: 0 0 auto; padding: 8px 12px; color: var(--ink); background: var(--yellow); border: 2px solid var(--ink); font: 700 14px var(--font-body); cursor: pointer; }
 .showcase-lightbox-heading button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
-.showcase-lightbox > img { display: block; width: 100%; height: min(70dvh, 750px); object-fit: contain; }
+.showcase-lightbox-content { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.showcase-lightbox-content > img { display: block; width: 100%; height: min(65dvh, 650px); object-fit: contain; }
+.showcase-lightbox-content > img[hidden] { display: none; }
+.showcase-lightbox-no-image .showcase-lightbox-content { grid-template-columns: 1fr; }
+.showcase-lightbox-copy p { line-height: 1.75; white-space: pre-line; }
+.showcase-lightbox-designers { margin-bottom: 16px; font-weight: 700; }
 @media (hover: hover) and (pointer: fine) {
-  .showcase-image:hover > img, .showcase-image:focus-visible > img { position: relative; z-index: 1; transform: scale(1.25); background: var(--white); box-shadow: 0 12px 32px rgba(45, 42, 75, 0.25); }
+  .showcase-image:hover .showcase-hover-popup, .showcase-image:focus-visible .showcase-hover-popup { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
 }
 @media (max-width: 1000px) {
   .showcase-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -500,9 +510,11 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
   .showcase-card h3 { font-size: 28px; }
   .showcase-lightbox-heading { gap: 12px; }
   .showcase-lightbox-heading h2 { font-size: 20px; }
+  .showcase-lightbox-content { grid-template-columns: 1fr; }
+  .showcase-lightbox-content > img { height: 42dvh; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .showcase-image > img { transition: none; }
+  .showcase-hover-popup { transition: none; }
 }
 .genre-activity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 38px; }
 .genre-activity { display: flex; min-height: 220px; overflow: hidden; background: var(--white); border: 2px solid var(--ink); flex-direction: column; }

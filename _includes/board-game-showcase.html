@@ -4,21 +4,26 @@
       <h2 id="showcase-heading">Meet the games.<br>Meet the makers.</h2>
       <p>Discover the local games selected for the All Play Day board game showcase. Meet their designers, try something new and help shape what comes next.</p>
     </div>
-    <p class="showcase-image-hint">Hover over an image to enlarge it, or click or tap for a closer look.</p>
+    <p class="showcase-image-hint">Hover over a game for a closer look and its story, or click or tap to explore.</p>
     <ul class="showcase-grid">
       {% for game in site.data.board_game_showcase %}
         <li class="showcase-card">
-          {% if game.image %}
-            <a class="showcase-image" href="{{ game.large_image | relative_url }}" data-showcase-image data-game-name="{{ game.name | escape }}" aria-label="Enlarge image for {{ game.name | escape }}">
+          <a class="showcase-image{% unless game.image %} showcase-image-pending{% endunless %}" href="{% if game.large_image %}{{ game.large_image | relative_url }}{% else %}#showcase{% endif %}" data-showcase-image data-image-url="{% if game.large_image %}{{ game.large_image | relative_url }}{% endif %}" data-game-name="{{ game.name | escape }}" data-game-description="{{ game.description | escape }}" data-game-designers="{{ game.designers | escape }}" aria-label="Explore {{ game.name | escape }}">
+            {% if game.image %}
               <img src="{{ game.image | relative_url }}" alt="{{ game.name | escape }}" loading="lazy" decoding="async" width="640" height="480">
-              <span class="showcase-enlarge" aria-hidden="true">↗</span>
-            </a>
-          {% else %}
-            <div class="showcase-image showcase-image-pending">
+            {% else %}
               <img src="{{ '/assets/svg/bg%20sticker.svg' | relative_url }}" alt="" loading="lazy" width="140" height="140">
-              <span>Image coming soon</span>
-            </div>
-          {% endif %}
+              <span class="showcase-image-status">Image coming soon</span>
+            {% endif %}
+            <span class="showcase-hover-popup" aria-hidden="true">
+              {% if game.image %}<img src="{{ game.image | relative_url }}" alt="" loading="lazy" decoding="async">{% endif %}
+              <span class="showcase-hover-copy">
+                <strong>{{ game.name | escape }}</strong>
+                <span class="showcase-hover-designers">{{ game.designers | escape }}</span>
+                <span class="showcase-hover-description">{{ game.description | escape }}</span>
+              </span>
+            </span>
+          </a>
           <div class="showcase-card-copy">
             <h3>{{ game.name | escape }}</h3>
             <p><span class="showcase-designer-label">Designed by</span>{{ game.designers | escape }}</p>
@@ -28,10 +33,16 @@
     </ul>
   </div>
 </section>
-<dialog class="showcase-lightbox" data-showcase-lightbox aria-labelledby="showcase-image-title">
+<dialog class="showcase-lightbox" data-showcase-lightbox aria-labelledby="showcase-image-title" aria-describedby="showcase-game-description">
   <div class="showcase-lightbox-heading">
     <h2 id="showcase-image-title" data-showcase-image-title></h2>
     <button type="button" data-close-showcase-image aria-label="Close enlarged game image">Close <span aria-hidden="true">×</span></button>
   </div>
-  <img data-showcase-large-image alt="">
+  <div class="showcase-lightbox-content">
+    <img data-showcase-large-image alt="">
+    <div class="showcase-lightbox-copy">
+      <p class="showcase-lightbox-designers" data-showcase-designers></p>
+      <p id="showcase-game-description" data-showcase-description></p>
+    </div>
+  </div>
 </dialog>
