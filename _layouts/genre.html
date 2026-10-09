@@ -30,9 +30,10 @@ layout: default
   {% include board-game-showcase.html %}
 {% endif %}
 {% assign submission_status = page.submission_status | default: 'upcoming' %}
+{% unless submission_status == 'hidden' %}
 <section id="submissions" class="genre-submissions section">
   <div class="genre-submissions-grid wrap">
-    <h2>{% if submission_status == 'closed' %}Submissions closed{% else %}Call for submissions{% endif %}</h2>
+    <h2>{% if submission_status == 'closed' %}Submissions closed{% elsif submission_status == 'last call' %}Last call for submissions{% else %}Call for submissions{% endif %}</h2>
     <div>
       {% if submission_status == 'closed' %}
         <p>{{ page.submission_closed_text | default: 'Submissions have closed and the programme is now being prepared.' }}</p>
@@ -43,8 +44,13 @@ layout: default
         {% endif %}
       {% elsif page.submission_url %}
         <a class="submission-link" href="{{ page.submission_url }}" target="_blank" rel="noopener">
-          <strong>{{ page.submission_label | default: 'Submit now' }}</strong>
-          <span>Applications are open ↗</span>
+          {% if submission_status == 'last call' %}
+            <strong>{{ page.submission_label | default: 'Last call: submit your game' }}</strong>
+            <span>Last chance to join the showcase ↗</span>
+          {% else %}
+            <strong>{{ page.submission_label | default: 'Submit now' }}</strong>
+            <span>Applications are open ↗</span>
+          {% endif %}
         </a>
       {% else %}
         <p>{{ page.submission_text }}</p>
@@ -53,6 +59,10 @@ layout: default
     </div>
   </div>
 </section>
+{% endunless %}
+{% if page.game_list == 'indie-dev-showcase' %}
+  {% include indie-dev-showcase.html %}
+{% else %}
 <section id="activities" class="genre-activities section">
   <div class="wrap">
     <h2>What's on</h2>
@@ -79,6 +89,7 @@ layout: default
     {% endif %}
   </div>
 </section>
+{% endif %}
 {% if page.organisations and page.organisations != empty %}
   <section id="organisations" class="genre-organisations section">
     <div class="wrap">
