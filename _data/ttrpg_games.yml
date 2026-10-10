@@ -1,0 +1,48 @@
+# Grouped by the Visual Timetable in the TTRPG Schedule spreadsheet.
+# Full runner names come from the Games register. Repeated sessions appear once;
+# entries marked Unconfirmed are omitted until their details are confirmed.
+- session_type: Taster
+  id: taster
+  games:
+    - game: Cyberpunk TCG
+      runner: Conan
+    - game: Shelling Bee
+      runner: Crogtown
+    - game: "Monster Wars: Midnight Mashup"
+      runner: Andrew Pickerill
+
+- session_type: Learn to Play / Shorter Sessions
+  id: learn-to-play
+  games:
+    - game: Dungeons & Dragons (D&D) 3.5 edition games
+      runner: Roger Rankin
+    - game: Might and Magic; Mech and Kaiju; Vampires and Werewolves (Lasers and Feelings mods)
+      runner: Minbo Wang
+    - game: "Section 5: Midnight Horizon"
+      runner: Reizor
+    - game: Chinatown board game
+      runner: To be confirmed
+    - game: Necromunda 2026 demo
+      runner: To be confirmed
+
+- session_type: Long Play
+  id: long-play
+  games:
+    - game: Dungeons & Dragons (D&D)
+      runner: Rachel Rubright
+    - game: Dungeons & Dragons (D&D)
+      runner: Taliesin Breen
+    - game: Dungeons & Dragons (D&D)
+      runner: Sam Humphries / Gaming Reforged
+    - game: Lament of the Jade Prophet
+      runner: Julian Energy
+    - game: Cosmere Learn to Play
+      runner: Shu Qing
+    - game: Dragon Age
+      runner: Stefan
+    - game: The Expanse
+      runner: Stefan
+    - game: Good Society
+      runner: Storybrewers Roleplaying
+    - game: Pretty Little Lairs
+      runner: David Gove

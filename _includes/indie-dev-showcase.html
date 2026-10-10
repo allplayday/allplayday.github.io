@@ -1,0 +1,18 @@
+<section id="activities" class="indie-dev-showcase section" aria-labelledby="indie-showcase-heading">
+  <div class="wrap">
+    <div class="game-list-heading">
+      <h2 id="indie-showcase-heading">Meet the games.<br>Meet the developers.</h2>
+      <p>Discover the games in the Indie Dev Showcase and the local developers bringing them to All Play Day.</p>
+    </div>
+    <table class="genre-game-list">
+      <thead>
+        <tr><th scope="col">Game</th><th scope="col">Developer</th></tr>
+      </thead>
+      <tbody>
+        {% for game in site.data.indie_dev_showcase %}
+          <tr><th scope="row">{{ game.game | escape }}</th><td>{{ game.developer | escape }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>

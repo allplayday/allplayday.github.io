@@ -2,6 +2,8 @@
 layout: default
 ---
 {% assign activities = site.activities | where: 'section', page.activity_section | sort: 'order' %}
+{% assign game_list_id = page.game_list | default: page.showcase %}
+{% assign game_list = site.data.game_lists[game_list_id] %}
 {% include event-subnav.html %}
 <section class="genre-page-hero {{ page.theme }}">
   <div class="wrap">
@@ -22,12 +24,12 @@ layout: default
     </div>
     <div class="genre-page-copy">
       <p>{{ page.body }}</p>
-      <a class="arrow-link" href="{% if page.showcase == 'board-games' %}#showcase{% else %}#activities{% endif %}">{% if page.showcase == 'board-games' %}Explore the showcase{% else %}Explore everything that's on{% endif %} <span>→</span></a>
+      <a class="arrow-link" href="#{{ game_list.anchor | default: 'activities' | escape }}">{% if game_list.anchor == 'showcase' %}Explore the showcase{% else %}Explore everything that's on{% endif %} <span>→</span></a>
     </div>
   </div>
 </section>
-{% if page.showcase == 'board-games' %}
-  {% include board-game-showcase.html %}
+{% if game_list.placement == 'before-submissions' %}
+  {% include genre-game-list.html list=game_list %}
 {% endif %}
 {% assign submission_status = page.submission_status | default: 'upcoming' %}
 {% unless submission_status == 'hidden' %}
@@ -37,8 +39,8 @@ layout: default
     <div>
       {% if submission_status == 'closed' %}
         <p>{{ page.submission_closed_text | default: 'Submissions have closed and the programme is now being prepared.' }}</p>
-        {% if activities != empty %}
-          <a class="button button-accent" href="#activities">See scheduled activities <span>↗</span></a>
+        {% if game_list or activities != empty %}
+          <a class="button button-accent" href="#{{ game_list.anchor | default: 'activities' | escape }}">See scheduled activities <span>↗</span></a>
         {% else %}
           <a class="button button-accent" href="{{ site.mailing_list_url | escape }}" data-open-updates>Get notified when the schedule is live <span>↗</span></a>
         {% endif %}
@@ -60,9 +62,10 @@ layout: default
   </div>
 </section>
 {% endunless %}
-{% if page.game_list == 'indie-dev-showcase' %}
-  {% include indie-dev-showcase.html %}
-{% else %}
+{% if game_list and game_list.placement != 'before-submissions' %}
+  {% include genre-game-list.html list=game_list %}
+{% endif %}
+{% if game_list == nil or game_list.placement == 'before-submissions' and activities != empty %}
 <section id="activities" class="genre-activities section">
   <div class="wrap">
     <h2>What's on</h2>

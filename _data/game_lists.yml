@@ -1,0 +1,19 @@
+# Genre pages can select a list with game_list (or the legacy showcase field).
+# Add new list types here without changing the shared genre layout.
+board-games:
+  include: board-game-showcase.html
+  anchor: showcase
+  placement: before-submissions
+video-games:
+  include: video-game-showcase.html
+  introduction: video-play-local.html
+  anchor: showcase
+  placement: before-submissions
+indie-dev-showcase:
+  include: indie-dev-showcase.html
+  anchor: activities
+  placement: after-submissions
+tabletop-rpgs:
+  include: ttrpg-games.html
+  anchor: activities
+  placement: after-submissions
