@@ -1,0 +1,49 @@
+<section id="showcase" class="video-game-showcase section" aria-labelledby="showcase-heading">
+  <div class="wrap">
+    <div class="showcase-heading">
+      <h2 id="showcase-heading">Meet the games.<br>Meet the makers.</h2>
+      <p>Discover the video games selected for All Play Day, and the developers and publishers behind them.</p>
+    </div>
+    <p class="showcase-image-hint">Hover over a game for a closer look and its story, or click or tap to explore.</p>
+    <ul class="showcase-grid">
+      {% for game in site.data.video_game_showcase %}
+        <li class="showcase-card">
+          <div class="showcase-image">
+            <a class="video-game-image-link" href="{{ game.image | relative_url }}" data-showcase-image data-image-url="{{ game.image | relative_url }}" data-game-name="{{ game.name | escape }}" data-game-description="{{ game.description | escape }}" data-game-credits="Developer: {{ game.developers | escape }}&#10;Publisher: {{ game.publishers | escape }}" data-steam-url="{{ game.steam_url | escape }}" aria-label="Explore {{ game.name | escape }}">
+              <img src="{{ game.image | relative_url }}" alt="{{ game.name | escape }}" loading="lazy" decoding="async" width="460" height="215">
+            </a>
+            <div class="showcase-hover-popup">
+              <a class="video-game-hover-image" href="{{ game.image | relative_url }}" data-showcase-image data-image-url="{{ game.image | relative_url }}" data-game-name="{{ game.name | escape }}" data-game-description="{{ game.description | escape }}" data-game-credits="Developer: {{ game.developers | escape }}&#10;Publisher: {{ game.publishers | escape }}" data-steam-url="{{ game.steam_url | escape }}" aria-label="Enlarge {{ game.name | escape }}">
+                <img src="{{ game.image | relative_url }}" alt="" loading="lazy" decoding="async">
+              </a>
+              <span class="showcase-hover-copy">
+                <strong>{{ game.name | escape }}</strong>
+                <span class="showcase-hover-designers">Developer: {{ game.developers | escape }}<br>Publisher: {{ game.publishers | escape }}</span>
+                <span class="showcase-hover-description">{{ game.description | escape }}</span>
+                <a class="arrow-link" href="{{ game.steam_url | escape }}" target="_blank" rel="noopener">View on Steam <span aria-hidden="true">↗</span></a>
+              </span>
+            </div>
+          </div>
+          <div class="showcase-card-copy">
+            <h3>{{ game.name | escape }}</h3>
+            <p><span class="showcase-designer-label">Developer</span>{{ game.developers | escape }}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+<dialog class="showcase-lightbox video-game-lightbox" data-showcase-lightbox aria-labelledby="showcase-image-title" aria-describedby="showcase-game-description">
+  <div class="showcase-lightbox-heading">
+    <h2 id="showcase-image-title" data-showcase-image-title></h2>
+    <button type="button" data-close-showcase-image aria-label="Close enlarged game image">Close <span aria-hidden="true">×</span></button>
+  </div>
+  <div class="showcase-lightbox-content">
+    <img data-showcase-large-image alt="">
+    <div class="showcase-lightbox-copy">
+      <p class="showcase-lightbox-designers" data-showcase-designers></p>
+      <p id="showcase-game-description" data-showcase-description></p>
+      <a class="arrow-link" data-showcase-steam target="_blank" rel="noopener" hidden>View on Steam <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</dialog>

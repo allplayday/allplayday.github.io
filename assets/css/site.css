@@ -464,28 +464,55 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .genre-page-copy { padding-top: 47px; color: rgba(45, 42, 75, 0.78); font-size: 15px; line-height: 1.75; }
 .genre-activities { background: var(--orange); }
 .ttrpg-games { background: var(--coral); }
-.ttrpg-games-heading { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; }
-.ttrpg-games-heading > p { max-width: 470px; margin: 0; line-height: 1.75; }
+.game-list-heading { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; }
+.game-list-heading > p { max-width: 470px; margin: 0; line-height: 1.75; }
 .ttrpg-session-nav { display: flex; flex-wrap: wrap; gap: 12px; margin-block: 32px 40px; }
 .ttrpg-session-nav a { padding: 12px 16px; background: var(--white); border: 2px solid var(--ink); font-size: 14px; font-weight: 700; line-height: 1.5; }
 .ttrpg-session-nav a:hover { background: var(--yellow); }
 .ttrpg-session-nav a:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
 .ttrpg-session-group { margin-top: 36px; scroll-margin-top: 28px; }
 .ttrpg-session-group h3 { margin: 0 0 20px; font-size: clamp(28px, 3vw, 40px); line-height: 1.15; }
-.ttrpg-game-list { width: 100%; border: 2px solid var(--ink); border-collapse: collapse; table-layout: fixed; background: var(--white); text-align: left; }
-.ttrpg-game-list th, .ttrpg-game-list td { padding: 18px 24px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.6; vertical-align: top; overflow-wrap: anywhere; }
-.ttrpg-game-list thead { background: var(--yellow); }
-.ttrpg-game-list thead th { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
-.ttrpg-game-list th:first-child { width: 60%; }
-.ttrpg-game-list tbody th { font-weight: 600; }
+.genre-game-list { width: 100%; border: 2px solid var(--ink); border-collapse: collapse; table-layout: fixed; background: var(--white); text-align: left; }
+.genre-game-list th, .genre-game-list td { padding: 18px 24px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.6; vertical-align: top; overflow-wrap: anywhere; }
+.genre-game-list thead { background: var(--yellow); }
+.genre-game-list thead th { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+.genre-game-list th:first-child { width: 60%; }
+.genre-game-list tbody th { font-weight: 600; }
+.game-list-heading + .genre-game-list { margin-top: 36px; }
 @media (max-width: 640px) {
-  .ttrpg-games-heading { grid-template-columns: 1fr; gap: 24px; }
+  .game-list-heading { grid-template-columns: 1fr; gap: 24px; }
   .ttrpg-session-nav a { padding: 10px 12px; }
-  .ttrpg-game-list th, .ttrpg-game-list td { padding: 12px; font-size: 14px; }
-  .ttrpg-game-list thead th { font-size: 11px; }
-  .ttrpg-game-list th:first-child { width: 56%; }
+  .genre-game-list th, .genre-game-list td { padding: 12px; font-size: 14px; }
+  .genre-game-list thead th { font-size: 11px; }
+  .genre-game-list th:first-child { width: 56%; }
 }
+.indie-dev-showcase { background: var(--green); }
 .board-game-showcase { background: var(--sky); }
+.video-game-showcase { background: var(--purple); }
+.video-play-local.section { padding-block: 36px 40px; background: var(--sky); }
+/* Keep the original artwork pixels; show only x=80..1540, y=64..609. */
+.play-local-artwork-crop { position: relative; width: 66.6667%; margin-inline: auto; aspect-ratio: 1460 / 545; overflow: hidden; }
+.play-local-artwork { position: absolute; left: -5.47945%; top: -11.74312%; display: block; width: 114.52055%; max-width: none; height: auto; }
+.play-local-copy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 24px; }
+.play-local-copy h2 { margin-bottom: 14px; font-size: clamp(26px, 2.8vw, 34px); line-height: 1.05; }
+.play-local-copy p { max-width: 530px; margin: 0; font-size: 16px; line-height: 1.65; }
+@media (max-width: 700px) {
+  .play-local-copy { grid-template-columns: 1fr; gap: 22px; margin-top: 20px; }
+}
+.video-game-showcase .showcase-image { aspect-ratio: 460 / 215; padding: 0; }
+.video-game-image-link { display: block; width: 100%; height: 100%; }
+.video-game-image-link > img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.video-game-image-link:focus-visible { outline: 3px solid var(--ink); outline-offset: -5px; }
+.video-game-showcase .showcase-image:focus-within .showcase-hover-popup { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
+.video-game-showcase .showcase-hover-popup .arrow-link { margin-top: 16px; }
+.video-game-lightbox [data-showcase-steam][hidden] { display: none; }
+.video-game-hover-image { display: block; }
+.video-game-hover-image > img { display: block; width: 100%; height: auto; aspect-ratio: 460 / 215; object-fit: contain; }
+.video-game-showcase .showcase-card-copy { display: flex; flex: 1; flex-direction: column; }
+.video-game-showcase .showcase-card { display: flex; flex-direction: column; }
+.video-game-showcase .showcase-card-copy p { margin-bottom: 16px; }
+.video-game-lightbox .showcase-lightbox-content { grid-template-columns: 1fr; }
+.video-game-lightbox .showcase-lightbox-content > img { height: auto; aspect-ratio: 460 / 215; }
 .showcase-heading { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; }
 .showcase-heading > p { margin: 0; max-width: 470px; line-height: 1.75; }
 .showcase-image-hint { margin: 30px 0 20px; font-size: 13px; line-height: 1.6; }

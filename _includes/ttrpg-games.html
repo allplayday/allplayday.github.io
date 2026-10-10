@@ -1,6 +1,6 @@
 <section id="activities" class="ttrpg-games section" aria-labelledby="ttrpg-games-heading">
   <div class="wrap">
-    <div class="ttrpg-games-heading">
+    <div class="game-list-heading">
       <h2 id="ttrpg-games-heading">Find your next<br>adventure.</h2>
       <p>Explore the games and meet the people running them, grouped by session type.</p>
     </div>
@@ -12,7 +12,7 @@
     {% for session in site.data.ttrpg_games %}
       <section id="{{ session.id | escape }}" class="ttrpg-session-group" aria-labelledby="{{ session.id | escape }}-heading">
         <h3 id="{{ session.id | escape }}-heading">{{ session.session_type | escape }}</h3>
-        <table class="ttrpg-game-list">
+        <table class="genre-game-list">
           <thead>
             <tr><th scope="col">Game</th><th scope="col">Game Runner</th></tr>
           </thead>

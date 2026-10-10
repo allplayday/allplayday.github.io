@@ -32,12 +32,15 @@ if (showcaseLightbox && typeof showcaseLightbox.showModal === 'function') {
   const imageTitle = showcaseLightbox.querySelector('[data-showcase-image-title]');
   const gameDescription = showcaseLightbox.querySelector('[data-showcase-description]');
   const gameDesigners = showcaseLightbox.querySelector('[data-showcase-designers]');
+  const steamLink = showcaseLightbox.querySelector('[data-showcase-steam]');
   let lastImageTrigger;
 
   document.querySelectorAll('[data-showcase-image]').forEach((trigger) => {
     trigger.addEventListener('click', (event) => {
       event.preventDefault();
-      lastImageTrigger = trigger;
+      lastImageTrigger = trigger.classList.contains('video-game-hover-image')
+        ? trigger.closest('.showcase-image').querySelector('.video-game-image-link')
+        : trigger;
       const imageUrl = trigger.dataset.imageUrl;
       largeImage.hidden = !imageUrl;
       showcaseLightbox.classList.toggle('showcase-lightbox-no-image', !imageUrl);
@@ -46,7 +49,12 @@ if (showcaseLightbox && typeof showcaseLightbox.showModal === 'function') {
       largeImage.alt = trigger.dataset.gameName;
       imageTitle.textContent = trigger.dataset.gameName;
       gameDescription.textContent = trigger.dataset.gameDescription;
-      gameDesigners.textContent = `Designed by ${trigger.dataset.gameDesigners}`;
+      gameDesigners.textContent = trigger.dataset.gameCredits || `Designed by ${trigger.dataset.gameDesigners}`;
+      if (steamLink) {
+        steamLink.hidden = !trigger.dataset.steamUrl;
+        if (trigger.dataset.steamUrl) steamLink.href = trigger.dataset.steamUrl;
+        else steamLink.removeAttribute('href');
+      }
       showcaseLightbox.showModal();
     });
   });
